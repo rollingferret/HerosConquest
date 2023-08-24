@@ -11,9 +11,9 @@ const Chat = () => {
 
     useEffect(() => {
       //for render live
-        // const newSocket = new WebSocket('wss://localhost:10000/ws');
+        // const newSocket = new WebSocket('ws://localhost:5055');
 
-        const newSocket = new WebSocket('wss://heroquest-awdm.onrender.com/ws');
+        const newSocket = new WebSocket('wss://heroquest-awdm.onrender.com:5055');
 
         newSocket.onopen = () => {
             console.log('WebSocket connected');
