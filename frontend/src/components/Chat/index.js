@@ -25,15 +25,15 @@ const Chat = () => {
             handleMessage(message.data);
         };
 
-        newSocket.onclose = () => {
-            console.log('WebSocket disconnected');
-        };
+        // newSocket.onclose = () => {
+        //     console.log('WebSocket disconnected');
+        // };
 
-        setSocket(newSocket);
+        // setSocket(newSocket);
 
-        return () => {
-            newSocket.close();
-        };
+        // return () => {
+        //     newSocket.close();
+        // };
     }, []);
 
     const handleMessage = message => {
