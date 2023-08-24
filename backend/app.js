@@ -87,7 +87,6 @@ app.use(routes);
 
   const wss = new WebSocket.Server({
       port: 5055,
-      path: '/ws',
       clientTracking: true
     });
 
