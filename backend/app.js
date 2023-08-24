@@ -92,6 +92,7 @@ app.use(routes);
     });
 
     wss.on('connection', ws => {
+      console.log('connecting')
       ws.on('message', jsonData => {
         console.log(`processing incoming message: ${jsonData}...`);
         const message = JSON.parse(jsonData);
