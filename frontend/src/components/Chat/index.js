@@ -13,7 +13,7 @@ const Chat = () => {
       //for render live
         // const newSocket = new WebSocket('ws://localhost:80/ws');
 
-        const newSocket = new WebSocket('wss://heroquest-awdm.onrender.com:80/ws');
+        const newSocket = new WebSocket('wss://heroquest-awdm.onrender.com/ws');
         console.log('after newsocket------------------------------------------')
 
         newSocket.onopen = () => {

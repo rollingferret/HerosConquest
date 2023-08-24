@@ -45,45 +45,6 @@ app.use(
 const routes = require('./routes');
 app.use(routes);
 
-  const { createServer } = require('http');
-  const WebSocket = require('ws');
-    const server = createServer(app);
-
-  const wss = new WebSocket.Server({
-      port: 80,
-      path: '/ws',
-      clientTracking: true
-    });
-
-    wss.on('connection', ws => {
-      console.log('connecting')
-      ws.on('message', jsonData => {
-        console.log(`processing incoming message: ${jsonData}...`);
-        const message = JSON.parse(jsonData);
-        const chatMessage = message.data;
-
-        const addChatMessage = {
-          type: 'add-chat-message',
-          data: chatMessage
-        };
-
-        const jsonAddChatMessage = JSON.stringify(addChatMessage);
-        console.log(`Sending Message: ${jsonAddChatMessage}...`);
-
-        wss.clients.forEach(client => {
-          //Ready states include: CONNECTING, OPEN, CLOSING, CLOSED
-          if(client.readyState === WebSocket.OPEN) {
-            client.send(jsonAddChatMessage);
-          };
-        });
-      });
-
-      ws.on('close', e => {
-        console.log(e)
-      });
-    });
-
-
 
 // Catch unhandled requests and forward to error handler.
 app.use((_req, _res, next) => {
